@@ -35,9 +35,9 @@ const vue_app = Vue.createApp({
             movies: [],
             /* ADD ADDITIONAL VARIABLES FOR STEP 3 HERE */
          title :
-          "IMDB + Matthew's Top 8 Movies",
+          "IMDB + Ken's Top 8 Movies",
       owner : "Matthew",
-         github : "https://github.com/Matthaynes/Haynes-P3",
+         github : "https://github.com/KenAbraham18/Abraham-P3",
           
       }
     },
