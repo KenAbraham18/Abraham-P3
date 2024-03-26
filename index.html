@@ -14,52 +14,53 @@
 	<!-- DO NOT CHANGE ANYTHING ABOVE THIS LINE-->
 
 	<!-- Javascript Framework (e.g., vue.js) (ADD HERE) -->
+	<!-- Vue.js CDN -->
 	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-
 
 </head>
 
 <body>
 	<div id="vue_app" class="container">
-	  <div class="header">
-		<div class="container">
-		  <h1 id="app_title">{{ title }}</h1>
-		</div>
-	  </div>
-  
-	  <div class="main">
-		<!-- Start of the movies loop -->
-		<div class="row">
-		  <div v-for="(movie, index) in movies" :key="index" class="col-md-6">
-			<div class="thumbnail">
-			  <img class="poster img-fluid" :src="movie.posters[movie.posterindex]" />
-			  <div class="imageInfo">{{ movie.posterindex }}</div>
-			  <p class="title">{{ movie.title }} {{ movie.country }}</p>
-			  <p class="score"><i class="bi bi-star" aria-hidden="true"></i> {{ movie.iscore }}</p>
-			  <p class="runtime">Runtime: {{ movie.runtime }}</p>
-			  <!-- Adjusted for proper release date display -->
-			  <p class="released">Released: {{ movie.released.join('-') }} | Rated: {{ movie.rating }}</p>
-			  <p class="websites">Websites: <a :href="movie.imdb">imdb</a> | <a :href="movie.website">website</a></p>
-			  <div class="social">
-				<p class="likes"><i class="bi bi-hand-thumbs-up" aria-hidden="true"></i> {{ movie.likes }}</p>
-				<p class="dislikes"><i class="bi bi-hand-thumbs-down"></i> {{ movie.dislikes }}</p>
+
+	    <div class="header">
+	      <div class="container">
+	        <h1 id="app_title">{{title}}</h1>
+	      </div>
+	    </div>
+
+		<div class="main">
+			<div class="row">
+			  <div class="col-md-6" v-for="(movie, index) in movies" :key="index">
+				<div class="thumbnail">
+				  <img class="poster img-fluid" :src="movie.posters[0]" alt="Movie Poster" />
+				  <div class="imageInfo">{{ index + 1 }}</div>
+	  
+				  <p class="title">{{ movie.title }} ({{ movie.country }})</p>
+				  <p class="score"><i class="bi bi-star" aria-hidden="true"></i> {{ movie.iscore }} </p>
+				  <p class="runtime">Runtime: {{ movie.runtime }}</p>
+				  <p class="released">Released: {{ getMonthText(movie.released) }} | Rated: {{ movie.rating }}</p>
+				  <p class="websites">Websites: <a :href="movie.imdb"> imdb </a> | <a :href="movie.website">website</a></p>
+	  
+				  <div class="social">
+					<p class="likes"><i class="bi bi-hand-thumbs-up" aria-hidden="true"></i> {{ movie.likes }}</p>
+					<p class="dislikes"><i class="bi bi-hand-thumbs-down"></i> {{ movie.dislikes }}</p>
+				  </div>
+				</div>
 			  </div>
 			</div>
 		  </div>
-		</div>
-		<!-- End of the movies loop -->
-	  </div>
-  
-	  <div class="footer">
-		<div class="container">
-		  <a id="github" class="btn btn-lg btn-warning" :href="github">
-			<i class="bi bi-github me-2"></i>{{ owner }}
-		  </a>
-		</div>
-	  </div>
+
+    		<div class="footer">
+        		<div class="container">
+            		<a id="github" class="btn btn-lg btn-warning" :href="github">
+                	<i class="bi bi-github me-2"></i>{{owner}}
+            	</a>
+        	</div>
+   		</div>
 	</div>
-  
-	<!-- This load the Vue.js code -->
+
+  	<!-- This loads the Vue.js code -->
 	<script type="text/javascript" src="site.js"></script>
-  </body>
+
+</body>
 </html>
