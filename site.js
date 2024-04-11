@@ -74,6 +74,7 @@ const vue_app = Vue.createApp({
     const remainingMinutes = minutes % 60;
     return `${hours}h ${remainingMinutes}m`;
   },
+  
   }
 });
 
